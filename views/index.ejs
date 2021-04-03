@@ -29,13 +29,15 @@
 
   <h1 class="mb-5">Covid 19 Tracker for INDIA </h1>
 
+  <!-- gives total data -->
+
   <div class="row">
     <div class="col-lg-4 col-md-6">
-      <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+      <div class="card text-white totalCases mb-3" style="max-width: 18rem;">
         <div class="card-body">
           <i class=" icon fas fa-sort-amount-up"></i>
          <h5 class="card-title">Total Cases</h5>
-         <p class="card-text totalCases"> <%= data.cases %> </p>
+         <p class="card-text "> <%= data.cases %> </p>
         </div>
       </div>
     </div>
@@ -45,7 +47,7 @@
         <div class="card-body">
           <i class=" icon fas fa-times-circle"></i>
          <h5 class="card-title">Total Death</h5>
-         <p class="card-text totalDeath"><%= data.deaths %></p>
+         <p class="card-text "><%= data.deaths %></p>
         </div>
       </div>
     </div>
@@ -55,7 +57,7 @@
         <div class="card-body">
           <i class="icon far fa-calendar-check"></i>
          <h5 class="card-title">Total Recovered</h5>
-         <p class="card-text totalRecovered"><%= data.recovered %></p>
+         <p class="card-text "><%= data.recovered %></p>
         </div>
       </div>
     </div>
@@ -64,23 +66,58 @@
       <div class="card text-white todayCases mb-3" style="max-width: 18rem;">
         <div class="card-body">
           <i class="icon fas fa-tachometer-alt"></i>
-         <h5 class="card-title">Today Cases</h5>
-         <p class="card-text todayCases"><%= data.todayCases %></p>
+         <h5 class="card-title">Yesterday Cases</h5>
+         <p class="card-text"><%= data1.todayCases %></p>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- gives yesterday data -->
+
+  <div class="row">
+
+    <div class="col-lg-4 col-md-6 d-md-none d-lg-block">
+      <div class="card text-white yesterdayCases mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+          <i class="icon fas fa-tachometer-alt"></i>
+         <h5 class="card-title">Yesterday Cases</h5>
+         <p class="card-text"><%= data1.todayCases %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="card text-white yesterdayDeaths mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+          <i class="icon fas fa-times"></i>
+         <h5 class="card-title">Yesterday Deaths</h5>
+         <p class="card-text"><%= data1.todayDeaths %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="card text-white yesterdayRecovered mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+          <i class="icon fas fa-check-circle"></i>
+         <h5 class="card-title">Yesterday Recovered</h5>
+         <p class="card-text "><%= data1.todayRecovered %></p>
         </div>
       </div>
     </div>
 
   </div>
 
+ <!-- gives todays data -->
 
   <div class="row">
 
-    <div class="col-lg-4 col-md-6 d-md-none d-lg-block">
-      <div class="card text-white todayCases mb-3" style="max-width: 18rem;">
+    <div class="col-lg-4 col-md-6">
+      <div class="card text-white bg-warning  mb-3" style="max-width: 18rem;">
         <div class="card-body">
           <i class="icon fas fa-tachometer-alt"></i>
          <h5 class="card-title">Today Cases</h5>
-         <p class="card-text todayCases"><%= data.todayCases %></p>
+         <p class="card-text "><%= data.todayCases %></p>
         </div>
       </div>
     </div>
@@ -90,7 +127,7 @@
         <div class="card-body">
           <i class="icon fas fa-times"></i>
          <h5 class="card-title">Today Deaths</h5>
-         <p class="card-text todayDeaths"><%= data.todayDeaths %></p>
+         <p class="card-text "><%= data.todayDeaths %></p>
         </div>
       </div>
     </div>
@@ -100,14 +137,14 @@
         <div class="card-body">
           <i class="icon fas fa-check-circle"></i>
          <h5 class="card-title">Today Recovered</h5>
-         <p class="card-text todayRecovered"><%= data.todayRecovered %></p>
+         <p class="card-text "><%= data.todayRecovered %></p>
         </div>
       </div>
     </div>
 
   </div>
-
 </div>
+
 
 
   <footer id="footer">

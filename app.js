@@ -9,9 +9,11 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.static("public"));
 app.set('view engine','ejs')
 
-var covidData;
+var covidDataToday;
+var covidDataYesterday;
 
-const url = "https://disease.sh/v3/covid-19/countries/india?strict=true&allowNull=false" ;
+const url = "https://disease.sh/v3/covid-19/countries/india?strict=true&allowNull=false" ; // getting todays data
+const url1 = 'https://disease.sh/v3/covid-19/countries/india?yesterday=true&twoDaysAgo=false&strict=true&allowNull=false' ; //getting yesterday's data
 
 https.get(url , function(response)
 {
@@ -23,7 +25,22 @@ jsonData += data;
 
 response.on("end" , function()
 {
-covidData = JSON.parse(jsonData);
+covidDataToday = JSON.parse(jsonData);
+});
+
+});
+
+https.get(url1 , function(response)
+{
+var jsonData1 = '';
+response.on("data" , function(data)
+{
+jsonData1 += data;
+});
+
+response.on("end" , function()
+{
+covidDataYesterday = JSON.parse(jsonData1);
 });
 
 });
@@ -31,7 +48,7 @@ covidData = JSON.parse(jsonData);
 
 app.get('/'  , function(req , res)
 {
-res.render('index' , {data:covidData});
+res.render('index' , {data:covidDataToday , data1:covidDataYesterday});
 });
 
 
